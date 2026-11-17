@@ -1,25 +1,51 @@
-<h1 align="center">Hi 👋, I'm leonardo lermen</h1>
-<h3 align="center">A passionate backend developer from Brazil</h3>
+# Leonardo Lermen
 
-- 🔭 I’m currently working on [Auth-Bank](https://github.com/ErickMiyagi/Auth-Bank)
+**Backend engineer from Brazil** · Java & Spring · payments, risk and distributed systems · building tools that let AI agents ship code safely.
 
-- 🌱 I’m currently learning **rest api**
+I like backend work where being *almost* right is not an option: money that has to reconcile, webhooks that must arrive once per event, risk decisions that a regulator can audit. I write the decisions down (ADRs, specs) and keep the reasoning next to the code.
 
-- 👨‍💻 All of my projects are available at [https://github.com/leonardolermen](https://github.com/leonardolermen)
+---
 
-- 💬 Ask me about **java, spring**
+## What I'm building
 
-- 📫 How to reach me **leonardo_lermen@hotmail.com**
+### 💳 Payments platform
 
-- 📄 Know about my experiences [https://www.linkedin.com/in/leonardo-lermen-768769242/](https://www.linkedin.com/in/leonardo-lermen-768769242/)
+| Project | What it is | Stack |
+|---|---|---|
+| [**payment-gateway**](https://github.com/leonardolermen/payment-gateway) | Payment orchestrator: one API for merchants, several providers behind it, and the money never passes through it (merchants use their own bank credentials). Pix and Bolecode through Itaú, credit card through Cielo, with customers, orders, plans and subscriptions on top. Encrypted merchant credentials, masked structured logs, mTLS webhooks and mock providers for development without bank sandboxes. | Java · Spring Boot · PostgreSQL · Docker |
+| [**payment-gateway-web**](https://github.com/leonardolermen/payment-gateway-web) | Merchant panel and hosted checkout for the gateway. | React 19 · TypeScript · Vite · Tailwind |
+| [**webhook-delivery**](https://github.com/leonardolermen/webhook-delivery) | Library for signed webhook delivery: retry with backoff, ordering by key, idempotency per (event, endpoint), secret rotation with an overlap window, and a per-endpoint concurrency cap so one partner being down doesn't starve the rest. Extracted from Barrier and published as a package. | Java · Spring Boot · virtual threads |
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://linkedin.com/in/leonardo lermen" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="leonardo lermen" height="30" width="40" /></a>
-<a href="https://instagram.com/leotucho" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="leotucho" height="30" width="40" /></a>
-</p>
+### 🛡️ [Barrier](https://github.com/leonardolermen/Barrier)
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/> </a> <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://www.microsoft.com/en-us/sql-server" target="_blank" rel="noreferrer"> <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="mssql" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> <a href="https://spring.io/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" alt="spring" width="40" height="40"/> </a> <a href="https://unrealengine.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/kenangundogan/fontisto/036b7eca71aab1bef8e6a0518f7329f13ed62f6b/icons/svg/brand/unreal-engine.svg" alt="unreal" width="40" height="40"/> </a> </p>
+KYC / AML risk platform built around Brazilian Central Bank rules. A partner sends a customer, and Barrier runs identity verification, PEP and sanctions screening and risk classification, answering right away (`202`) and again by signed webhook when the analysis finishes. It never stores document images or biometrics, only the outcome of each check, so a leak can't expose data that can't be revoked.
 
-<p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=leonardolermen&show_icons=true&locale=en&layout=compact" alt="leonardolermen" /></p>
+`Java 25` · `Spring Boot 4` · `Kafka (choreography + outbox)` · `PostgreSQL + Flyway` · `ADRs`
+
+### 🪐 Solaris *(private)*
+
+A self-hosted hub where teams of AI coding agents (Claude Code and Codex) work on my repositories, and where I watch what they ship:
+
+- every task runs in its own git worktree and branch; a team (plan → build → review) is reviewed and approved as one unit, with a single PR;
+- review comes with a **live preview** of the change and a chat to ask for adjustments, plus automatic tests and a **visual check** (headless browser, desktop and mobile) before anything reaches me;
+- the agents' prompts and skills improve themselves from evidence (rejections, review comments, failed checks), versioned and reversible;
+- an **API gateway** (routing, failover, JWT / API keys / mTLS, caching) and **OpenTelemetry observability** (traces, logs, metrics, anomaly detection) for the services it runs;
+- a Windows desktop app that rebuilds itself from the repository.
+
+`Go` · `templ + htmx` · `SQLite` · `OpenTelemetry` · `MCP`
+
+---
+
+## Tools I reach for
+
+- **Languages:** Java, Go, TypeScript, Python
+- **Backend:** Spring Boot, REST, Kafka, PostgreSQL, Flyway
+- **Frontend:** React, Vite, Tailwind, htmx
+- **Infra & quality:** Docker, GitHub Actions, OpenTelemetry, WireMock, Testcontainers
+- **AI engineering:** Claude Code, Codex, MCP servers, multi-agent orchestration
+
+---
+
+## Connect
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Leonardo%20Lermen-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/leonardo-lermen-768769242/)
