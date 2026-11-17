@@ -1,4 +1,4 @@
-# Leonardo Lermen
+<p align="center"><img src="./banner.svg" alt="Leonardo Lermen, backend engineer from Brazil" width="100%"/></p>
 
 **Backend engineer from Brazil** · Java & Spring · payments, risk and distributed systems · building tools that let AI agents ship code safely.
 
