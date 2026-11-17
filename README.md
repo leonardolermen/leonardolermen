@@ -4,48 +4,24 @@
 
 I like backend work where being *almost* right is not an option: money that has to reconcile, webhooks that must arrive once per event, risk decisions that a regulator can audit. I write the decisions down (ADRs, specs) and keep the reasoning next to the code.
 
----
+<p align="center"><img src="./assets/title-building.svg" alt="What I'm building" width="100%"/></p>
 
-## What I'm building
+<p align="center">
+  <a href="https://github.com/leonardolermen/payment-gateway"><img src="./assets/payment-gateway.svg" alt="payment-gateway: payment orchestrator; Pix and Bolecode through Itaú, card through Cielo; the money never passes through it" width="49%"/></a>
+  <a href="https://github.com/leonardolermen/payment-gateway-web"><img src="./assets/payment-gateway-web.svg" alt="payment-gateway-web: merchant panel and hosted checkout (React 19, TypeScript, Vite, Tailwind)" width="49%"/></a>
+</p>
+<p align="center">
+  <a href="https://github.com/leonardolermen/webhook-delivery"><img src="./assets/webhook-delivery.svg" alt="webhook-delivery: signed webhook delivery library with retry, ordering, idempotency and secret rotation" width="49%"/></a>
+  <a href="https://github.com/leonardolermen/Barrier"><img src="./assets/barrier.svg" alt="Barrier: KYC and AML risk platform built around Brazilian Central Bank rules" width="49%"/></a>
+</p>
+<p align="center"><img src="./assets/solaris.svg" alt="Solaris (private): self-hosted hub for teams of AI coding agents, with review, live previews, visual checks, an API gateway and observability" width="99%"/></p>
 
-### 💳 Payments platform
+<p align="center"><img src="./assets/title-tools.svg" alt="Tools I reach for" width="100%"/></p>
 
-| Project | What it is | Stack |
-|---|---|---|
-| [**payment-gateway**](https://github.com/leonardolermen/payment-gateway) | Payment orchestrator: one API for merchants, several providers behind it, and the money never passes through it (merchants use their own bank credentials). Pix and Bolecode through Itaú, credit card through Cielo, with customers, orders, plans and subscriptions on top. Encrypted merchant credentials, masked structured logs, mTLS webhooks and mock providers for development without bank sandboxes. | Java · Spring Boot · PostgreSQL · Docker |
-| [**payment-gateway-web**](https://github.com/leonardolermen/payment-gateway-web) | Merchant panel and hosted checkout for the gateway. | React 19 · TypeScript · Vite · Tailwind |
-| [**webhook-delivery**](https://github.com/leonardolermen/webhook-delivery) | Library for signed webhook delivery: retry with backoff, ordering by key, idempotency per (event, endpoint), secret rotation with an overlap window, and a per-endpoint concurrency cap so one partner being down doesn't starve the rest. Extracted from Barrier and published as a package. | Java · Spring Boot · virtual threads |
+<p align="center"><img src="./assets/stack.svg" alt="Languages: Java, Go, TypeScript, Python. Backend: Spring Boot, REST, Kafka, PostgreSQL, Flyway. Frontend: React, Vite, Tailwind, htmx. Infra and quality: Docker, GitHub Actions, OpenTelemetry, WireMock, Testcontainers. AI engineering: Claude Code, Codex, MCP servers, multi-agent orchestration." width="100%"/></p>
 
-### 🛡️ [Barrier](https://github.com/leonardolermen/Barrier)
+<p align="center"><img src="./assets/title-connect.svg" alt="Let's connect" width="100%"/></p>
 
-KYC / AML risk platform built around Brazilian Central Bank rules. A partner sends a customer, and Barrier runs identity verification, PEP and sanctions screening and risk classification, answering right away (`202`) and again by signed webhook when the analysis finishes. It never stores document images or biometrics, only the outcome of each check, so a leak can't expose data that can't be revoked.
-
-`Java 25` · `Spring Boot 4` · `Kafka (choreography + outbox)` · `PostgreSQL + Flyway` · `ADRs`
-
-### 🪐 Solaris *(private)*
-
-A self-hosted hub where teams of AI coding agents (Claude Code and Codex) work on my repositories, and where I watch what they ship:
-
-- every task runs in its own git worktree and branch; a team (plan → build → review) is reviewed and approved as one unit, with a single PR;
-- review comes with a **live preview** of the change and a chat to ask for adjustments, plus automatic tests and a **visual check** (headless browser, desktop and mobile) before anything reaches me;
-- the agents' prompts and skills improve themselves from evidence (rejections, review comments, failed checks), versioned and reversible;
-- an **API gateway** (routing, failover, JWT / API keys / mTLS, caching) and **OpenTelemetry observability** (traces, logs, metrics, anomaly detection) for the services it runs;
-- a Windows desktop app that rebuilds itself from the repository.
-
-`Go` · `templ + htmx` · `SQLite` · `OpenTelemetry` · `MCP`
-
----
-
-## Tools I reach for
-
-- **Languages:** Java, Go, TypeScript, Python
-- **Backend:** Spring Boot, REST, Kafka, PostgreSQL, Flyway
-- **Frontend:** React, Vite, Tailwind, htmx
-- **Infra & quality:** Docker, GitHub Actions, OpenTelemetry, WireMock, Testcontainers
-- **AI engineering:** Claude Code, Codex, MCP servers, multi-agent orchestration
-
----
-
-## Connect
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Leonardo%20Lermen-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/leonardo-lermen-768769242/)
+<p align="center">
+  <a href="https://www.linkedin.com/in/leonardo-lermen-768769242/"><img src="https://img.shields.io/badge/LinkedIn-Leonardo%20Lermen-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn: Leonardo Lermen"/></a>
+</p>
